@@ -1,4 +1,4 @@
-## Empty React App
+## React App
 
 This is the first project for learning react
 

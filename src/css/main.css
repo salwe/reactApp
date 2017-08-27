@@ -1,0 +1,13 @@
+.header-pd {
+    padding: 154px 0 100px;
+}
+
+@media (min-width: 992px) {
+    .header-pd {
+        padding: 156px 0 100px;
+    }
+}
+
+.pd_150 {
+    padding: 150px 0;
+}
