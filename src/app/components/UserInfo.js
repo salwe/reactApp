@@ -3,18 +3,7 @@ import React from "react";
 export class UserInfo extends React.Component {
     constructor(props) {
         super();
-        // this.state = {
-        //     user: []
-        // };
     }
-    componentDidMount(props) {
-        // fetch("../../json/userData.json")
-        //     .then( (response) => {
-        //         return response.json() })   
-        //             .then( (json) => {
-        //                 this.setState({user: json});
-        //             });
-    };
 
     render() {
         return(
@@ -31,9 +20,9 @@ export class UserInfo extends React.Component {
 }
 
 UserInfo.propTypes = {
-    //user: React.PropTypes.string,
-    author: React.PropTypes.string,
-    link: React.PropTypes.string,
+    user: React.PropTypes.object,
+    // author: React.PropTypes.string,
+    // link: React.PropTypes.string,
     stack: React.PropTypes.array
 };
 

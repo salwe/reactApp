@@ -1,6 +1,6 @@
 import React from "react";
 
-export class Timer extends React.Component {
+export class AliveTimer extends React.Component {
 	constructor(props) {
 		super();
 		this.state = {
@@ -26,7 +26,11 @@ export class Timer extends React.Component {
 			diffDate: (diffDays + " : " + diffHrs + " : " + diffMins + " : " + diffSecs)
 		});
 	}
-
+	componentDidMount(props) {
+		this.setState({
+			diffDate: this.calcTime()
+		});
+	}
 	componentWillUnmount() {
 		clearInterval(this.state.timerId);
 	}
