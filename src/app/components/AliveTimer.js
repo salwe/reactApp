@@ -10,6 +10,16 @@ export class AliveTimer extends React.Component {
 		}
 	}
 
+	componentDidMount(props) {
+		this.setState({
+			diffDate: this.calcTime()
+		});
+	}
+	
+	componentWillUnmount() {
+		clearInterval(this.state.timerId);
+	}
+
 	calcTime() {
 		var currDate = new Date();
 		var startDate = new Date(this.state.startDate);
@@ -26,18 +36,17 @@ export class AliveTimer extends React.Component {
 			diffDate: (diffDays + " : " + diffHrs + " : " + diffMins + " : " + diffSecs)
 		});
 	}
-	componentDidMount(props) {
-		this.setState({
-			diffDate: this.calcTime()
-		});
-	}
-	componentWillUnmount() {
-		clearInterval(this.state.timerId);
-	}
+
+    renderLoading() {
+        return <p><span className="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>Loading...</p>
+    }
 
 	render() {
-		return (
-			<p>I'm alive {this.state.diffDate}</p>
-		);
+		if (this.state.diffDate) {
+			return (
+				<p>I'm alive {this.state.diffDate}</p>
+			);
+		}
+		return this.renderLoading();
 	}
 }
