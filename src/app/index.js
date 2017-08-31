@@ -7,13 +7,23 @@ import { AliveTimer } from "./components/AliveTimer";
 import { UserInfo } from "./components/UserInfo";
 
 class App extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            user: []
+        }
+    }
+    loadData(path) {
+        fetch(path)
+            .then(res => res.json())
+            .then(res => this.setState({ user: res}))
+            .catch(console.error);
+    }
+    componentDidMount(props) {
+        this.loadData("../json/userData.json");
+    }
     render(){
-        var user = {
-            author: "Salwe Breid",
-            git: "http://github.com/salwe",
-            vk: "https://vk.com/salwe_breid"
-        };
-        var stack = ["Bootstrap", "WebPack", "ReactJS"];
+        var user = this.state.user.length ? this.state.user[0] : [];
         return(
             <div className="main">
                 <NavBar title="ReactApp"/>
@@ -33,7 +43,7 @@ class App extends React.Component {
                         <div className="row">
                             <div className="col-lg-12">
                                 <h2>About</h2>
-                                <UserInfo user={user} stack={stack}/>
+                                <UserInfo user={user} />
                             </div>
                         </div>
                     </div>
