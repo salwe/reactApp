@@ -2,22 +2,21 @@ import React from "react";
 
 export class AliveTimer extends React.Component {
 	constructor(props) {
-		super();
+		super(props);
 		this.state = {
 			startDate: '2017-08-26',
-			diffDate: '0 : 00 : 00 : 00',
-			timerId: setInterval(this.calcTime.bind(this), 1000)
+			diffDate: ''
 		}
 	}
 
 	componentDidMount(props) {
-		this.setState({
-			diffDate: this.calcTime()
-		});
+		this.timerId = setInterval(
+			() => this.calcTime()
+			, 1000);
 	}
 	
 	componentWillUnmount() {
-		clearInterval(this.state.timerId);
+		clearInterval(this.timerId);
 	}
 
 	calcTime() {
