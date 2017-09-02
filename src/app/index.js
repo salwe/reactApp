@@ -5,6 +5,7 @@ import { NavBar } from "./components/NavBar";
 import { Header } from "./components/Header";
 import { AliveTimer } from "./components/AliveTimer";
 import { UserInfo } from "./components/UserInfo";
+import { Weather } from "./components/Weather";
 
 class App extends React.Component {
     constructor() {
@@ -27,28 +28,26 @@ class App extends React.Component {
 
     renderHeader() {
         return (
-            <header className="bg-primary text-white header-pd">
-                <div className="container text-center">
-                    <div className="row">
-                        <div className="col-lg-12 mx-auto">
-                            <h1>Welcome to React App</h1>
-                            <p className="lead">I have no idea what it will be, but I hope it will not die young</p>
-                            <AliveTimer />
-                        </div>
-                    </div>
-                </div>
-            </header>
+            <Header>
+                <AliveTimer />
+            </Header>
         );
     }
 
-    renderSection(user) {
+    renderSection(user, weather) {
         return (
             <section id="about" className="pd_150">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-12">
+                        <div className="col-lg-6">
                             <h2>About</h2>
                             <UserInfo user={user} />
+                        </div>
+                        <div className="col-lg-3">
+                            <Weather cityId="472045" />
+                        </div>
+                        <div className="col-lg-3">
+                            <Weather />
                         </div>
                     </div>
                 </div>
@@ -66,7 +65,7 @@ class App extends React.Component {
 
             return(
                 <div className="main">
-                    <NavBar title="ReactApp"/>
+                    <NavBar />
                     { this.renderHeader() }
                     { this.renderSection(user) }
                 </div>

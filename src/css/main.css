@@ -11,3 +11,11 @@
 .pd_150 {
     padding: 150px 0;
 }
+
+.card-weather .card-block {
+    padding: 1.25rem;
+}
+
+.card-weather__img {
+    margin-left: -.5rem;
+}
