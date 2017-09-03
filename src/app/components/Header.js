@@ -1,4 +1,5 @@
 import React from "react";
+import { AliveTimer } from "./AliveTimer";
 
 export const Header = (props) => {
 	return(
@@ -8,7 +9,7 @@ export const Header = (props) => {
 					<div className="col-lg-12 mx-auto">
 						<h1>Welcome to React App</h1>
 						<p className="lead">I have no idea what it will be, but I hope it will not die young</p>
-						{props.children}
+						<AliveTimer />
 					</div>
 				</div>
 			</div>
