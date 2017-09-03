@@ -44,7 +44,7 @@ class App extends React.Component {
                             <UserInfo user={user} />
                         </div>
                         <div className="col-lg-3">
-                            <Weather cityId="472045" />
+                            <Weather cityId={472045} />
                         </div>
                         <div className="col-lg-3">
                             <Weather />

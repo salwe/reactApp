@@ -8,7 +8,7 @@ export class Weather extends React.Component {
         }
     }
     componentDidMount() {
-        let cityId = this.props.cityId || '524901';
+        let cityId = this.props.cityId || 524901; //Moscow
         let path = (`http://api.openweathermap.org/data/2.5/weather?id=${cityId}&APPID=e1c84156e270c48a122a5ec550984b60`);
         this.loadData(path);
         this.timerId = setInterval(
@@ -27,13 +27,13 @@ export class Weather extends React.Component {
     render() {
         let {weather} = this.state;
         if (weather.wind) {
-            console.log(weather);
             return (
                 <div className="card card-weather">
                     <h4 className="card-header bg-dark text-white">{ weather.name }</h4>
                     <div className="card-block">
                         <div className="card-weather__img h5">
-                            <img src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`} alt=""/>
+                            <img src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
+                                 alt={`${weather.weather[0].description}`}/>
                             { Math.round(weather.main.temp - 273.15) } &deg;C
                         </div>
                         <p>Wind: { weather.wind.speed } m/s</p>
@@ -46,3 +46,7 @@ export class Weather extends React.Component {
         );
     }
 }
+
+Weather.propTypes = {
+    cityId: React.PropTypes.number
+};
