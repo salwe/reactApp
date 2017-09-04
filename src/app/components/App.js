@@ -1,23 +1,24 @@
 import React from 'react';
-import { browserHistory } from "react-router";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 
-import { About } from "./About";
 import { Template } from "./Template";
+import { Home } from "./Home";
+import { About } from "./About";
+import { Services } from "./Services";
+import { UserInfo } from "./UserInfo";
 
 class App extends React.Component {
-    constructor() {
-        super();
-    }
-    
     render(){
         return(
-            <Router history={browserHistory}>
-                <Template>
-                    <Route path={"/about"} component={About} />
-                </Template>
-            </Router>
+            <Template>
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/about" component={About} />
+                    <Route path="/services" component={Services} />
+                    <Route path="/contact" component={UserInfo} />
+                </Switch>
+            </Template>
         )
     }
 }

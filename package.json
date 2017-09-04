@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build",
-    "build": "webpack -d && webpack-dev-server --content-base src/ --inline --history-api-fallback",
+    "build": "webpack -d && webpack-dev-server --content-base src/ --inline",
     "build:prod": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel": "babel",
